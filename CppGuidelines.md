@@ -27,6 +27,26 @@ Exceptions to the snake-case rule include the names of:
 - *executables*, which should prefer hyphens instead of underscores (e.g. `phlex-program` is easier to type than `phlex_program`)
 - *template parameters*, which should prefer Pascal case (see [here](https://en.wikipedia.org/wiki/Camel_case) for distinction between Camel and Pascal cases)
 
+<!- inspired by Celeritas and ROOT conventions -->
+
+#### Symbol names
+
+Functions should be verbs; classes should be names. As in standard Python (PEP-8-compliant) code, classes should use CapWordsStyle and variables use snake_case_style. A symbol should have a trailing underscore always and only if it is private member data: neither public member data nor private member functions should have them (public data member are expected to only be access via their containing symbol name (`mystruct.myvalue` or `this->myvalue` in the rare case of member function of struct with public data member).
+
+Functors (classes whose instances act like a function) should be an *agent
+noun*: the noun form of an action verb. Instances of a functor should be a
+verb. For example::
+```
+   ModelEvaluator evaluate_something(parameters...);
+   auto result = evaluate_something(arguments...);
+```
+
+#### Variable names
+
+Generally speaking, variables should have short lifetimes and should be self-documenting. Avoid shorthand and “transliterated” mathematical expressions: prefer `constants::na_avogadro` to `N_A` (or express the constant functionally with `atoms_per_mole`) and use `atomic_number` instead of `Z`. Physical constants should try to have the symbol concatenated to the context or meaning (e.g. `c_light` or `h_planck`).
+
+Use scoped enumerations (`enum class`) where possible (named like classes) so their values can safely be named like member variables (lowercase with underscores). Prefer enumerations to boolean values in function interfaces (since `do_something(true)` requires looking up the function interface definition to understand).
+
 ### Build system
 
 [CMake](https://cmake.org/cmake/help/git-master/)
