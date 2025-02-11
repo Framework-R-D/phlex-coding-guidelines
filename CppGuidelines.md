@@ -21,6 +21,8 @@ We adopt the underscore-style or [snake-case](https://en.wikipedia.org/wiki/Snak
 
 The snake case convention will apply to variables, functions (free and member), classes, namespaces, files, and any C++ modules.
 
+*[Alternative approach under discussion: As in standard Python (PEP-8-compliant) code, classes should use `CapWordsStyle` and variables use `snake_case_style`.]*
+
 Note that the `SCREAMING_SNAKE_CASE` (or `ALL_CAPS` style) will be reserved for only macro names, consistent with the [NL.9 C++ core guideline](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#nl9-use-all_caps-for-macro-names-only) referenced above.
 
 Exceptions to the snake-case rule include the names of:
@@ -31,21 +33,25 @@ Exceptions to the snake-case rule include the names of:
 
 #### Symbol names
 
-Functions should be verbs; classes should be names. As in standard Python (PEP-8-compliant) code, classes should use CapWordsStyle and variables use snake_case_style. A symbol should have a trailing underscore always and only if it is private member data: neither public member data nor private member functions should have them (public data member are expected to only be access via their containing symbol name (`mystruct.myvalue` or `this->myvalue` in the rare case of member function of struct with public data member).
+Functions should be verbs; classes should be nouns.
+A symbol should have a trailing underscore always and only if it is private member data: neither public member data nor private member functions should have them (public data member are expected to only be access via their containing symbol name (`mystruct.my_value` or `this->my_value` in the rare case of member function of struct with public data member).
 
-Functors (classes whose instances act like a function) should be an *agent
-noun*: the noun form of an action verb. Instances of a functor should be a
-verb. For example::
-```
-   ModelEvaluator evaluate_something(parameters...);
-   auto result = evaluate_something(arguments...);
+Functors (classes whose instances act like a function) should be an *agent noun*: the noun form of an action verb.
+Instances of a functor should be a verb. For example:
+
+```c++
+ModelEvaluator evaluate_something(parameters...);
+auto result = evaluate_something(arguments...);
 ```
 
 #### Variable names
 
-Generally speaking, variables should have short lifetimes and should be self-documenting. Avoid shorthand and “transliterated” mathematical expressions: prefer `constants::na_avogadro` to `N_A` (or express the constant functionally with `atoms_per_mole`) and use `atomic_number` instead of `Z`. Physical constants should try to have the symbol concatenated to the context or meaning (e.g. `c_light` or `h_planck`).
+Generally speaking, variables should have short lifetimes and should be self-documenting (see C++ core guidelines [NL.1](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#nl1-dont-say-in-comments-what-can-be-clearly-stated-in-code) and [NL.7](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rl-name-length)).
+Avoid shorthand and “transliterated” mathematical expressions: prefer `constants::n_avogadro` to `N_A` (or express the constant functionally with `atoms_per_mole`) and use `atomic_number` instead of `Z`.
+Physical constants should try to have the symbol concatenated to the context or meaning (e.g. `c_light` or `h_planck`).
 
-Use scoped enumerations (`enum class`) where possible (named like classes) so their values can safely be named like member variables (lowercase with underscores). Prefer enumerations to boolean values in function interfaces (since `do_something(true)` requires looking up the function interface definition to understand).
+Use scoped enumerations (`enum class`) where possible (named like classes) so their values can safely be named like member variables (lowercase with underscores) (see C++ core guideline [Enum.3](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Renum-class)).
+Prefer enumerations to boolean values in function interfaces (since `do_something(true)` requires looking up the function interface definition to understand (see C++ core guideline [I.4](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#i4-make-interfaces-precisely-and-strongly-typed)).
 
 ### Build system
 
