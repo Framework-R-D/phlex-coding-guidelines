@@ -29,7 +29,7 @@ Exceptions to the snake-case rule include the names of:
 - *executables*, which should prefer hyphens instead of underscores (e.g. `phlex-program` is easier to type than `phlex_program`)
 - *template parameters*, which should prefer Pascal case (see [here](https://en.wikipedia.org/wiki/Camel_case) for distinction between Camel and Pascal cases)
 
-<!- inspired by Celeritas and ROOT conventions -->
+<!-- inspired by Celeritas and ROOT conventions -->
 
 #### Symbol names
 
