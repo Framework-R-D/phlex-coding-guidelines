@@ -1,5 +1,5 @@
-# Framework coding guidelines
-Coding guidelines for framework contributors
+# Phlex coding guidelines
+Coding guidelines for Phlex framework contributors
 
 ### General
 
