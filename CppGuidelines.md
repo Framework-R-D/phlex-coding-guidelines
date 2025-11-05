@@ -3,7 +3,10 @@
 Basis: [C++ Core Guidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines)
 
 Exceptions:
-1. Use east-`const` notation (at variance with [NL. 26 Use conventional const notation](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rl-const))
+1. Use east-`const` notation (at variance with [NL.26: Use conventional const notation](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rl-const))
+2. It is permitted to use `const` member data when not all member functions can be `const`-qualified (at variance with [C.12: Don’t make data members `const` or references in a copyable or movable type](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#c12-dont-make-data-members-const-or-references-in-a-copyable-or-movable-type)).
+   This can be especially important in guarding against multi-threading pitfalls.
+3. It is permitted to use references as data members when (a) the class does not need to be copy-assignable, **and** (b) the data member must be non-null (at variance with [C.12: Don’t make data members `const` or references in a copyable or movable type](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#c12-dont-make-data-members-const-or-references-in-a-copyable-or-movable-type))
 
 ### Clang format
 
