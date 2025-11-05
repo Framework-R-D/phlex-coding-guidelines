@@ -21,8 +21,6 @@ We adopt the underscore-style or [snake-case](https://en.wikipedia.org/wiki/Snak
 
 The snake case convention will apply to variables, functions (free and member), classes, namespaces, files, and any C++ modules.
 
-*[Alternative approach under discussion: As in standard Python (PEP-8-compliant) code, classes should use `CapWordsStyle` and variables use `snake_case_style`.]*
-
 Note that the `SCREAMING_SNAKE_CASE` (or `ALL_CAPS` style) will be reserved for only macro names, consistent with the [NL.9 C++ core guideline](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#nl9-use-all_caps-for-macro-names-only) referenced above.
 
 Exceptions to the snake-case rule include the names of:
